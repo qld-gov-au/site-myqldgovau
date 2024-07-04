@@ -7,9 +7,9 @@ aws for an environment release.
 ```shell
 deploy_stack() {
   local ENV=$1
-  local STACK_NAME="QGDS-Bootstrap5-$ENV"
-  local S3_BUCKET_NAME="/config/QGDS-Bootstrap5/$ENV/S3BucketName"
-  local S3_BUCKET_PATH="/config/QGDS-Bootstrap5/$ENV/S3BucketPath"
+  local STACK_NAME="site-myqldgovau-$ENV"
+  local S3_BUCKET_NAME="/config/site-myqldgovau/$ENV/S3BucketName"
+  local S3_BUCKET_PATH="/config/site-myqldgovau/$ENV/S3BucketPath"
 
   aws cloudformation deploy \
     --template-file iam.cfn.yml \
@@ -21,7 +21,7 @@ deploy_stack() {
       Environment=$ENV \
       GitHubOIDCProviderARN=/config/GitHubOIDCProviderARN \
       GitHubOrg=qld-gov-au \
-      RepoName=qgds-Bootstrap5-release \
+      RepoName=site-myqldgovau \
       S3BucketName=$S3_BUCKET_NAME \
       S3BucketPath=$S3_BUCKET_PATH
 }
@@ -52,6 +52,6 @@ Authenticate gh to your GitHub account by running
 ``gh auth login`` and following the prompts.
 
 ```shell
-./setup_github_environment.sh qld-gov-au qgds-bootstrap5-release DEV "s3://your-s3-bucket-nam/folder" arn:aws:iam::00011122211:role/cfnCreatedRoleHere
+./setup_github_environment.sh qld-gov-au site-myqldgovau DEV "s3://your-s3-bucket-nam/folder" arn:aws:iam::00011122211:role/cfnCreatedRoleHere
 
 ```

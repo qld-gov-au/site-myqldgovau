@@ -24,7 +24,7 @@
   "type": "module",
   "dependencies": {},
   "devDependencies": {
-    "@qld-gov-au/qgds-bootstrap5" : "qld-gov-au/qgds-bootstrap5#ec845c80e3e0e31ff945e28d82af51ab2f72fdd1",
+    "@qld-gov-au/site-myqldgovau" : "qld-gov-au/site-myqldgovau#843ded9f97df2a3328d534a039bbcb483a9c71f2",
     "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",

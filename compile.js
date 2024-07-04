@@ -3,7 +3,7 @@ import { globby } from 'globby';
 import handlebars from 'handlebars';
 import path from 'path';
 import chokidar from 'chokidar';
-import handlebarsInit from './node_modules/@qld-gov-au/qgds-bootstrap5/dist/assets/node/handlebars.init.min.js'
+import handlebarsInit from './node_modules/@qld-gov-au/site-myqldgovau/dist/assets/node/handlebars.init.min.js'
 
 async function compileTemplates() {
     handlebarsInit.init(handlebars);
