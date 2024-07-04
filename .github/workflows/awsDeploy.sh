@@ -7,6 +7,7 @@ set -ex
 UPDATE_LATEST=false
 DRY_RUN=false
 REPO_ROOT="."
+domain=""
 
 # Parse command line arguments
 for arg in "$@"; do
@@ -22,6 +23,10 @@ for arg in "$@"; do
             ;;
         repo_root=*)
             REPO_ROOT="${arg#*=}"
+            ;;
+        *)
+        domain=*)
+            DOMAIN="${arg#*=}"
             ;;
         *)
             echo "Ignoring unknown argument: $arg"
@@ -48,5 +53,9 @@ cd "$WORK_DIR" || exit 1
 
 aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*.svg'
 aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
+
+if [[ ! -z "$DOMAIN" ]]; then
+  ./awsCloudfrontInvalidateCache.sh $DOMAIN
+fi
 
 echo "Deployment $VERSION completed" >> $GITHUB_STEP_SUMMARY

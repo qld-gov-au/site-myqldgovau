@@ -3,8 +3,32 @@
 This iam config is required to allow github Actions to deploy to
 aws for an environment release.
 
+```shell
+aws iam create-open-id-connect-provider \
+    --url https://token.actions.githubusercontent.com \
+    --client-id-list sts.amazonaws.com \
+    --thumbprint-list 1b511abead59c6ce207077c0bf0e0043b1382612
+```
 
 ```shell
+set_parameter() {
+    local PARAM_NAME=$1
+    local PARAM_VALUE=$2
+    local IS_SECRET=${3:-false}  # Default false, set to true for secret (encrypted) parameters
+
+    # Determine the parameter type
+    if [ "$IS_SECRET" = true ]; then
+        PARAM_TYPE="SecureString"
+    else
+        PARAM_TYPE="String"
+    fi
+
+    # Create or update the parameter
+    echo "Setting parameter $PARAM_NAME..."
+    aws ssm put-parameter --name "$PARAM_NAME" --value "$PARAM_VALUE" --type "$PARAM_TYPE" --overwrite
+
+}
+
 deploy_stack() {
   local ENV=$1
   local STACK_NAME="site-myqldgovau-$ENV"
@@ -16,8 +40,6 @@ deploy_stack() {
     --stack-name $STACK_NAME \
     --capabilities CAPABILITY_IAM \
     --parameter-overrides \
-      Branch1=main \
-      Branch2=develop \
       Environment=$ENV \
       GitHubOIDCProviderARN=/config/GitHubOIDCProviderARN \
       GitHubOrg=qld-gov-au \
@@ -27,11 +49,15 @@ deploy_stack() {
 }
 
 # Example usage:
+
+set_parameter "/config/site-myqldgovau/PROD/S3BucketName" "mybucket123"
+set_parameter "/config/site-myqldgovau/PROD/Public_TLD" "publicTLdomain"
+set_parameter "/config/site-myqldgovau/PROD/PublicStackZoneTLD" "r53zoneDomain"
+
 deploy_stack DEV
 deploy_stack TEST
 deploy_stack STAGING
 deploy_stack PROD
-deploy_stack BETA
 ```
 
 
