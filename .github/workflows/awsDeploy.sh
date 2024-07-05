@@ -24,7 +24,6 @@ for arg in "$@"; do
         repo_root=*)
             REPO_ROOT="${arg#*=}"
             ;;
-        *)
         domain=*)
             DOMAIN="${arg#*=}"
             ;;
