@@ -22,10 +22,6 @@ Parameters:
     Type: 'AWS::SSM::Parameter::Value<String>'
     Default: '/config/site-myqldgovau/DEV/S3BucketName'
     Description: Name of the S3 bucket.
-  S3BucketPath:
-    Type: 'AWS::SSM::Parameter::Value<String>'
-    Default: '/config/site-myqldgovau/DEV/S3BucketPath'
-    Description: Allowed Path to update
   GitHubOIDCProviderARN:
     Type: 'AWS::SSM::Parameter::Value<String>'
     Default: '/config/GitHubOIDCProviderARN'
@@ -77,7 +73,7 @@ Resources:
                   - "s3:PutObjectAcl"
                   - "s3:DeleteObject"
                 Resource:
-                  - !Sub "arn:aws:s3:::${S3BucketName}/${S3BucketPath}*"
+                  - !Sub "arn:aws:s3:::${S3BucketName}/*"
 
 Outputs:
   RoleArn:

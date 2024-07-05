@@ -10,46 +10,10 @@ Parameters:
     Description: Additional domain names for the ACM certificate.
     Default: ""
 
-  OriginDomain1:
+  defaultOriginDomain:
     Type: String
-    Description: The first origin domain name (S3 bucket or custom domain).
-  OriginDomain2:
-    Type: String
-    Description: The second origin domain name (S3 bucket or custom domain).
-    Default: ""
-  OriginDomain3:
-    Type: String
-    Description: The third origin domain name (S3 bucket or custom domain).
-    Default: ""
-  OriginDomain4:
-    Type: String
-    Description: The fourth origin domain name (S3 bucket or custom domain).
-    Default: ""
-  OriginDomain5:
-    Type: String
-    Description: The fifth origin domain name (S3 bucket or custom domain).
-    Default: ""
+    Description: The default origin domain name (S3 bucket or custom domain).
 
-  OriginPath1:
-    Type: String
-    Description: The behavior suffix for the first origin.
-    Default: ""
-  OriginPath2:
-    Type: String
-    Description: The behavior suffix for the second origin.
-    Default: ""
-  OriginPath3:
-    Type: String
-    Description: The behavior suffix for the third origin.
-    Default: ""
-  OriginPath4:
-    Type: String
-    Description: The behavior suffix for the fourth origin.
-    Default: ""
-  OriginPath5:
-    Type: String
-    Description: The behavior suffix for the fifth origin.
-    Default: ""
 
 Resources:
   Certificate:
@@ -68,69 +32,25 @@ Resources:
       DistributionConfig:
         Enabled: true
         DefaultCacheBehavior:
-          TargetOriginId: origin1
+          TargetOriginId: defaultOrigin
           ViewerProtocolPolicy: redirect-to-https
           ForwardedValues:
             QueryString: false
             Cookies:
               Forward: none
         Origins:
-          - Id: origin1
-            DomainName: !Ref OriginDomain1
-            OriginPath: !Ref OriginPath1
+          - Id: defaultOrigin
+            DomainName: !Ref defaultOriginDomain
+            OriginPath: "*"
             CustomOriginConfig:
               HTTPPort: 80
               HTTPSPort: 443
               OriginProtocolPolicy: https-only
-          - Id: origin2
-            DomainName: !If
-              - HasOrigin2
-              - !Ref OriginDomain2
-              - !Ref "AWS::NoValue"
-            OriginPath: !Ref OriginPath2
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
-          - Id: origin3
-            DomainName: !If
-              - HasOrigin3
-              - !Ref OriginDomain3
-              - !Ref "AWS::NoValue"
-            OriginPath: !Ref OriginPath3
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
-          - Id: origin4
-            DomainName: !If
-              - HasOrigin4
-              - !Ref OriginDomain4
-              - !Ref "AWS::NoValue"
-            OriginPath: !Ref OriginPath4
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
-          - Id: origin5
-            DomainName: !If
-              - HasOrigin5
-              - !Ref OriginDomain5
-              - !Ref "AWS::NoValue"
-            OriginPath: !Ref OriginPath5
-            CustomOriginConfig:
-              HTTPPort: 80
-              HTTPSPort: 443
-              OriginProtocolPolicy: https-only
+      
         ViewerCertificate:
           AcmCertificateArn: !Ref Certificate
           SslSupportMethod: sni-only
 
-Conditions:
-  HasOrigin2: !Not [!Equals [!Ref OriginDomain2, ""]]
-  HasOrigin3: !Not [!Equals [!Ref OriginDomain3, ""]]
-  HasOrigin4: !Not [!Equals [!Ref OriginDomain4, ""]]
-  HasOrigin5: !Not [!Equals [!Ref OriginDomain5, ""]]
 
 Outputs:
   CloudFrontDistributionId:

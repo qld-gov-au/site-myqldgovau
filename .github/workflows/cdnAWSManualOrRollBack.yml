@@ -99,7 +99,7 @@ jobs:
       - name: Deploy
         run: |
           bash -x ./.github/workflows/awsDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
-            version=${{ env.version }} dry_run=${{  github.event.inputs.dryRun }}
+            version=${{ env.version }} dry_run=${{  github.event.inputs.dryRun }} domain="${{ steps.version.outputs.url }}"
 
       - uses: actions/upload-artifact@v4.3.1
         with:

@@ -6,6 +6,8 @@ set -ex
 # Default values
 UPDATE_LATEST=false
 DRY_RUN=false
+REPO_ROOT="."
+domain=""
 
 # Parse command line arguments
 for arg in "$@"; do
@@ -18,6 +20,13 @@ for arg in "$@"; do
             ;;
         version=*)
             VERSION="${arg#*=}"
+            ;;
+        repo_root=*)
+            REPO_ROOT="${arg#*=}"
+            ;;
+        *)
+        domain=*)
+            DOMAIN="${arg#*=}"
             ;;
         *)
             echo "Ignoring unknown argument: $arg"
@@ -42,7 +51,11 @@ WORK_DIR="${INPUT_WORKDIR:-$(mktemp -d "${HOME}/gitrepo.XXXXXX")}"
 git config --global --add safe.directory "$WORK_DIR" || exit 1
 cd "$WORK_DIR" || exit 1
 
-aws s3 sync $aws_dry_run --delete "dist" "${S3BUCKET}" --exclude '*.svg'
-aws s3 sync $aws_dry_run --delete "dist" "${S3BUCKET}" --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
+aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*.svg'
+aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
+
+if [[ ! -z "$DOMAIN" ]]; then
+  ./awsCloudfrontInvalidateCache.sh $DOMAIN
+fi
 
 echo "Deployment $VERSION completed" >> $GITHUB_STEP_SUMMARY
