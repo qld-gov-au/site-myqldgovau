@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.event.inputs.environment }}
-      url: ${{ steps.version.outputs.url }}
+      url: "https://${{ steps.version.outputs.url }}"
     concurrency:
       group: ${{ github.event.inputs.environment }}-deployments
       cancel-in-progress: false
