@@ -50,8 +50,8 @@ WORK_DIR="${INPUT_WORKDIR:-$(mktemp -d "${HOME}/gitrepo.XXXXXX")}"
 git config --global --add safe.directory "$WORK_DIR" || exit 1
 cd "$WORK_DIR" || exit 1
 
-aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*.svg'
-aws s3 sync $aws_dry_run --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
+aws s3 sync $aws_dry_run --sse AES256 --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*.svg'
+aws s3 sync $aws_dry_run --sse AES256 --delete "${REPO_ROOT}/dist" "${S3BUCKET}" --exclude '*' --include '*.svg' --content-type 'image/svg+xml'
 
 if [[ ! -z "$DOMAIN" ]]; then
   ./awsCloudfrontInvalidateCache.sh $DOMAIN
