@@ -1,9 +1,10 @@
 import fs from 'fs-extra';
+import fse from 'fs-extra';
 import { globby } from 'globby';
 import handlebars from 'handlebars';
 import path from 'path';
 import chokidar from 'chokidar';
-import handlebarsInit from './node_modules/@qld-gov-au/site-myqldgovau/dist/assets/node/handlebars.init.min.js'
+import handlebarsInit from './node_modules/@qld-gov-au/qgds-bootstrap5/dist/assets/node/handlebars.init.min.js'
 
 async function compileTemplates() {
     handlebarsInit.init(handlebars);
@@ -31,6 +32,28 @@ async function compileTemplates() {
         console.log(`Compiled ${templatePath} to ${outputPath}`);
     }
 }
+async function copyAssets() {
+    const src = path.join('node_modules', '@qld-gov-au', 'qgds-bootstrap5', 'dist', 'assets');
+    const dest = path.join( 'dist', 'assets');
+
+    // Ensure destination directory exists
+    fse.ensureDir(dest, err => {
+        if (err) {
+            console.error(`Error ensuring directory exists: ${err}`);
+        } else {
+            // Copy the directory
+            fse.copy(src, dest, err => {
+                if (err) {
+                    console.error(`Error copying directory: ${err}`);
+                } else {
+                    console.log(`Copied ${src} to ${dest}`);
+                }
+            });
+        }
+    });
+
+
+}
 
 async function cleanBuildFolder() {
     await fs.remove('dist');
@@ -42,6 +65,7 @@ async function build(options) {
         await cleanBuildFolder();
     }
     await compileTemplates();
+    await copyAssets();
 }
 
 function watchFiles() {

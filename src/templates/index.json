@@ -1,7 +1,15 @@
 {
+    "cdn": "./",
     "title": "My Account - Under Construction",
+    "icon-root": "./assets/img/svg-icons.svg",
+    "icons": {
+        "menu-icon": "qld__icon__mobile-menu",
+        "search-icon": "qld__icon__search",
+        "close-icon": "qld__icon__close",
+        "chevron_down": "qld__icon__chevron-down"
+    },
     "header": {
-        "icon-root": "assets/img/svg-icons.svg",
+    "icon-root": "./assets/img/svg-icons.svg",
         "icons": {
             "menu-icon": "qld__icon__mobile-menu",
             "search-icon": "qld__icon__search",
@@ -9,9 +17,11 @@
             "chevron_down": "qld__icon__chevron-down"
         },
         "sitePreHeader": {
-            "preHeaderBrand": {
-                "url": "https://www.qld.gov.au",
-                "text": "qld.gov.au"
+      "url": {
+        "value": "https://qld.gov.au"
+      },
+      "text": {
+        "value": "www.qld.gov.au"
             },
             "CTA": [
                 {
@@ -26,39 +36,39 @@
                     "dropdown_options": {
                         "dropdown_type": "list",
                         "view_more": true,
-                        "label": "View all",
+            "label": "Browse all information and services",
                         "url": "https://www.qld.gov.au/queenslanders",
                         "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/transport",
                                     "label": "Transport and motoring"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/jobs",
                                     "label": "Employment and jobs"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/education",
                                     "label": "Education and training"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/about",
                                     "label": "Queensland and its government"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/health",
                                     "label": "Health and wellbeing"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
+                  "url": "https://www.qld.gov.au/community",
                                     "label": "Community support"
                                 }
                             ]
@@ -77,76 +87,67 @@
                     "dropdown_options": {
                         "dropdown_type": "list",
                         "view_more": true,
-                        "label": "View all",
-                        "url": "https://www.qld.gov.au/queenslanders",
+            "label": "All categories",
+            "url": "https://www.business.qld.gov.au/",
                         "target": "_blank",
                         "dropdown_config": {
                             "groups": [
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Transport and motoring"
+                  "url": "https://www.business.qld.gov.au/starting-business",
+                  "label": "Starting a business"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Employment and jobs"
+                  "url": "https://www.business.qld.gov.au/running-business",
+                  "label": "Running a business"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Education and training"
+                  "url": "https://www.business.qld.gov.au/running-business/employing",
+                  "label": "Employing people"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Queensland and its government"
+                  "url": "https://www.business.qld.gov.au/running-business/employing/payroll-tax",
+                  "label": "Payroll tax"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Health and wellbeing"
+                  "url": "https://www.business.qld.gov.au/industries",
+                  "label": "Industries"
                                 },
                                 {
                                     "action": "_blank",
-                                    "url": "#",
-                                    "label": "Community support"
+                  "url": "https://www.business.qld.gov.au/industries/invest",
+                  "label": "Investing in Queensland"
                                 }
                             ]
-                        }
-                    }
-                },
-                {
-                    "id": "CTAthree",
-                    "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "Login"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "form",
-                        "dropdown_config": {
-                            "content": "<div></div>"
                         }
                     }
                 }
             ]
         },
         "siteHeader": {
+      "config": {
+        "masterbrand_enabled": false,
+        "subbrand_enabled": true,
+        "cobrand_enabled": false,
+        "endorsed_enabled": false,
+        "standalone_enabled": false
+      },
             "url": {
-                "value": "https://www.qld.gov.au"
+        "value": "https://qld.gov.au"
             },
             "secondaryType": {
                 "logo": {
                     "value": ""
                 },
                 "siteTitle": {
-                    "value": "Queensland Government Design System"
+          "value": "My Qld"
                 },
                 "subline": {
-                    "value": "QGDS"
+          "value": ""
                 }
             }
         },
@@ -155,17 +156,29 @@
             "placeholder": "",
             "label": "",
             "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
+        "url": "https://www.qld.gov.au/search"
             },
             "options": {
                 "borderStyle": {
                     "full": true
                 }
             }
+    },
+    "searchInput": "                <!-- \n    QGDS Component: Search input \n-->\n<div class=\"container \">\n    <div class=\"qld-search-input \">\n        <input id=\"search\" name=\"query\" class=\"form-control\" type=\"text\" placeholder=\"Search website\" autocomplete=\"off\" aria-label=\"Search website\" data-collection=\"qgov~sp-forgov\" data-profile=\"forgov\" data-numranks=\"10\" data-tiers=\"off\" data-suggestions=\"https://discover.search.qld.gov.au/s/suggest.json\" data-results-url=\"https://discover.search.qld.gov.au/s/search.json\">\n\n        <button class=\"btn btn-primary\" type=\"submit\" id=\"search-button\">\n            <span class=\"btn-icon\"></span>\n            <span class=\"btn-label\">Search</span>\n        </button>\n\n        \n    </div>\n</div>"
+  },
+  "navbar": {
+    "metadata": {
+      "target_url": "metadata-index.html",
+      "options": {
+        "showHomeTitleSmallDevices": true,
+        "icon-root": "./assets/img/svg-icons.svg",
+        "home-active": true
+      }
         }
     },
     "sidenav": {
         "navtitle": "My Account",
+    "navtitlelink": "https//www.my.qld.gov.au",
         "navlist": [
             {
                 "link": "https://legacy.my.qld.gov.au/",
@@ -175,172 +188,9 @@
             }
         ]
     },
-    "search": {
-        "icon-root": "assets/img/svg-icons.svg",
-        "icons": {
-            "menu-icon": "qld__icon__mobile-menu",
-            "search-icon": "qld__icon__search",
-            "close-icon": "qld__icon__close",
-            "chevron_down": "qld__icon__chevron-down"
-        },
-        "sitePreHeader": {
-            "preHeaderBrand": {
-                "url": "https://www.qld.gov.au",
-                "text": "qld.gov.au"
-            },
-            "CTA": [
-                {
-                    "id": "CTAone",
-                    "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "For Queenslanders"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "list",
-                        "view_more": true,
-                        "label": "View all",
-                        "url": "https://www.qld.gov.au/queenslanders",
-                        "target": "_blank",
-                        "dropdown_config": {
-                            "groups": [
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Transport and motoring"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Employment and jobs"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Education and training"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Queensland and its government"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Health and wellbeing"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Community support"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": "CTAtwo",
-                    "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "Business and Industry"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "list",
-                        "view_more": true,
-                        "label": "View all",
-                        "url": "https://www.qld.gov.au/queenslanders",
-                        "target": "_blank",
-                        "dropdown_config": {
-                            "groups": [
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Transport and motoring"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Employment and jobs"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Education and training"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Queensland and its government"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Health and wellbeing"
-                                },
-                                {
-                                    "action": "_blank",
-                                    "url": "#",
-                                    "label": "Community support"
-                                }
-                            ]
-                        }
-                    }
-                },
-                {
-                    "id": "CTAthree",
-                    "url": {
-                        "value": "#"
-                    },
-                    "text": {
-                        "value": "Login"
-                    },
-                    "dropdown_enabled": true,
-                    "dropdown_options": {
-                        "dropdown_type": "form",
-                        "dropdown_config": {
-                            "content": "<div></div>"
-                        }
-                    }
-                }
-            ]
-        },
-        "siteHeader": {
-            "url": {
-                "value": "https://www.qld.gov.au"
-            },
-            "secondaryType": {
-                "logo": {
-                    "value": ""
-                },
-                "siteTitle": {
-                    "value": "Queensland Government Design System"
-                },
-                "subline": {
-                    "value": "QGDS"
-                }
-            }
-        },
-        "siteSearchAsset": {
-            "value": "#",
-            "placeholder": "",
-            "label": "",
-            "formAction": {
-                "url": "https://www.forgov.qld.gov.au/search"
-            },
-            "options": {
-                "borderStyle": {
-                    "full": true
-                }
-            }
-        }
-    },
+
     "footer": {
-        "feedbackFormDisabled" : true
+    "feedbackFormDisabled": true
     },
     "breadcrumbs": {
         "breadcrumbs": [
@@ -353,6 +203,5 @@
                 "linktext": "My Account"
             }
         ]
-    },
-    "cdn" : "BETA"
+  }
 }

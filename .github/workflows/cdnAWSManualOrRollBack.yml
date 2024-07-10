@@ -96,6 +96,10 @@ jobs:
       - name: Save root directory
         run: echo "REPO_ROOT=$(pwd)" >> $GITHUB_ENV
 
+      - name: Copy Environment Config for {{  github.event.inputs.environment }}
+        run: |
+          bash -x .github/workflows/setupEnvironmentConfig.sh ${{ env.REPO_ROOT }} {{  github.event.inputs.environment }}
+
       - name: Deploy
         run: |
           bash -x ./.github/workflows/awsDeploy.sh repo_root=${{ env.REPO_ROOT }} s3bucket="${{ secrets.S3BUCKET }}" \
