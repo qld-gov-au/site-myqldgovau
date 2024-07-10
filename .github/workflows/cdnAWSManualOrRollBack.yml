@@ -85,7 +85,7 @@ jobs:
 
       - name: Get Git Tag or Package.json Version
         id: version
-        run: bash -x ./.github/workflows/getVersionDetails.sh {{  github.event.inputs.environment }}
+        run: bash -x ./.github/workflows/getVersionDetails.sh ${{ github.event.inputs.environment }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
