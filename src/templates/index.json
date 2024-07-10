@@ -1,5 +1,5 @@
 {
-    "cdn": "./",
+    "cdn": ".",
     "title": "My Account - Under Construction",
     "icon-root": "./assets/img/svg-icons.svg",
     "icons": {
