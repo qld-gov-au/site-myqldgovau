@@ -1,4 +1,4 @@
-name: "Deploy CDN (manual/rollback) ${{ github.event.inputs.environment }}"
+name: "Deploy to CDN (manual/rollback)"
 
 on:
   workflow_dispatch:
