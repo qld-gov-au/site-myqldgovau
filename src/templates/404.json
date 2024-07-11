@@ -126,7 +126,7 @@
             }
           }
         }
-        ]
+      ]
     },
     "siteHeader": {
       "config": {
@@ -188,7 +188,6 @@
       }
     ]
   },
-
   "footer": {
     "feedbackFormDisabled": true
   },
