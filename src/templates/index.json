@@ -21,7 +21,7 @@
         "value": "https://qld.gov.au"
       },
       "text": {
-        "value": "www.qld.gov.au"
+        "value": "Queensland Government"
       },
       "CTA": [
         {
@@ -137,14 +137,14 @@
         "standalone_enabled": false
       },
       "url": {
-        "value": "https://qld.gov.au"
+        "value": "https://my.qld.gov.au"
       },
       "secondaryType": {
         "logo": {
           "value": ""
         },
         "siteTitle": {
-          "value": "My Qld"
+          "value": "My Account"
         },
         "subline": {
           "value": ""
@@ -168,13 +168,112 @@
   },
   "navbar": {
     "metadata": {
-      "target_url": "metadata-index.html",
+      "target_url": "https://my.qld.gov.au/",
       "options": {
         "showHomeTitleSmallDevices": true,
         "icon-root": "./assets/img/svg-icons.svg",
         "home-active": true
       }
-    }
+    },
+    "navigation": [
+      {
+        "title": "Contact us",
+        "icon": "",
+        "target_url": "https://www.qld.gov.au/contact-us/"
+      }
+    ],
+    "CTA": [
+      {
+        "id": "CTAone",
+        "target_url": "#",
+        "label": "For Queenslanders",
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "dropdown_type": "list",
+          "view_more_label": "Browse all information and services",
+          "view_more_url": "https://www.qld.gov.au/queenslanders",
+          "dropdown_config": {
+            "groups": [
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/transport",
+                "label": "Transport and motoring"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/jobs",
+                "label": "Employment and jobs"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/education",
+                "label": "Education and training"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/about",
+                "label": "Queensland and its government"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/health",
+                "label": "Health and wellbeing"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.qld.gov.au/community",
+                "label": "Community support"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "CTAtwo",
+        "target_url": "#",
+        "label": "Business and Industry",
+        "dropdown_enabled": true,
+        "dropdown_options": {
+          "dropdown_type": "list",
+          "view_more_label": "All categories",
+          "view_more_url": "https://www.business.qld.gov.au/",
+          "dropdown_config": {
+            "groups": [
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/starting-business",
+                "label": "Starting a business"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/running-business",
+                "label": "Running a business"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/running-business/employing",
+                "label": "Employing people"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/running-business/employing/payroll-tax",
+                "label": "Payroll tax"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/industries",
+                "label": "Industries"
+              },
+              {
+                "action": "_blank",
+                "url": "https://www.business.qld.gov.au/industries/invest",
+                "label": "Investing in Queensland"
+              }
+            ]
+          }
+        }
+      }
+    ]
   },
   "sidenav": {
     "navtitle": "My Account",
@@ -189,7 +288,50 @@
     ]
   },
   "footer": {
-    "feedbackFormDisabled": true
+    "sitename": "My Account",
+    "variantClass": "dark",
+    "followlinksDisabled": true,
+    "footerHasStateOfQldDisabled": true,
+    "contact": {
+      "hasBorderColumn": false,
+      "title": "Contact us",
+      "content": "<p>Get in touch for enquiries, feedback, complaints and compliments.</p>",
+      "list": {
+        "phone": {
+          "icon": "icon-phone",
+          "label": "<b>Phone:</b> 13 QGOV (13 74 68)"
+        }
+      },
+      "buttonLabel": "Contact us",
+      "buttonLink": "https://www.qld.gov.au/contact-us"
+    },
+    "feedbackForm" : {
+      "hasBorderColumnDisabled": false,
+      "title": "Website feedback",
+      "content": "Help us improve the content on our website or tell us what is working really well.",
+      "btnTitle": "Leave your feedback",
+      "formAttr": {
+        "data-formio": "",
+        "data-formio-project-name": "oldkihhcwbdtwye",
+        "data-formio-form-name": "footerfeedbackcontactus",
+        "data-formio-env-url": "api.forms.platforms.qld.gov.au",
+        "data-formio-createForm-options": "formioCreateFormOptions",
+        "data-formio-createForm-controller": "formioCreateFormController"
+      },
+      "formioResource": "https://static.qgov.net.au/formio-qld/v2/v2.x.x-latest/formio-script.min.js"
+    },
+    "acknowledgements": [
+      {
+        "title": "",
+        "content": "<p>Queensland Government acknowledges the Traditional Owners of the land and pays respect to Elders past, present and future.</p>"
+      }
+    ],
+    "copyright": {
+      "hasBorderColumnDisabled": true,
+      "content": "&copy; The State of Queensland",
+      "yearFrom": "1995",
+      "currentYear": "2024"
+    }
   },
   "breadcrumbs": {
     "breadcrumbs": [
