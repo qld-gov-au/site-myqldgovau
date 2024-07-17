@@ -23,7 +23,7 @@
   ],
   "type": "module",
   "devDependencies": {
-    "@qld-gov-au/qgds-bootstrap5": "1.1.2",
+    "@qld-gov-au/qgds-bootstrap5": "git+https://github.com/qld-gov-au/qgds-bootstrap5.git#5ff28983f94292ea1d5edce4a9a91f0f99f58454",
     "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",
