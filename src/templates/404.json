@@ -228,6 +228,11 @@
       }
     }
   },
+  "metadata": {
+    "options": {
+      "icon-root": "./assets/img/svg-icons.svg"
+    }
+  },
   "navbar": {
     "metadata": {
       "target_url": "https://my.qld.gov.au/",
