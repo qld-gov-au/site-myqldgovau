@@ -1,5 +1,5 @@
 {
-  "cdn": ".",
+  "cdn": "/assets/..",
   "title": "My Qld - Under Construction",
   "icon-root": "./assets/img/svg-icons.svg",
   "icons": {
