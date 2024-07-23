@@ -1,6 +1,6 @@
 {
   "cdn": "/assets/..",
-  "title": "My Qld - Under Construction",
+  "title": "Coming soon: MyQLD Services Portal",
   "icon-root": "./assets/img/svg-icons.svg",
   "icons": {
     "menu-icon": "qld__icon__mobile-menu",
@@ -144,7 +144,7 @@
           "value": ""
         },
         "siteTitle": {
-          "value": "My Qld"
+          "value": "MyQLD"
         },
         "subline": {
           "value": ""
@@ -343,7 +343,7 @@
     ]
   },
   "sidenav": {
-    "navtitle": "My Qld",
+    "navtitle": "MyQLD",
     "navtitlelink": "https://www.my.qld.gov.au",
     "navlist": [
       {
@@ -355,7 +355,7 @@
     ]
   },
   "footer": {
-    "sitename": "My Qld",
+    "sitename": "MyQLD",
     "variantClass": "dark",
     "followlinksDisabled": true,
     "footerHasStateOfQldDisabled": true,
@@ -408,7 +408,7 @@
       },
       {
         "link": "https://my.qld.gov.au/",
-        "linktext": "My Qld"
+        "linktext": "MyQLD"
       }
     ]
   }
