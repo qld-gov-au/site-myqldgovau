@@ -1,7 +1,7 @@
 {
-  "cdn": ".",
+  "cdn": "DEV",
   "title": "My Account - Not Found",
-  "icon-root": "./assets/img/svg-icons.svg",
+  "icon-root": "//dev-static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/img/svg-icons.svg",
   "icons": {
     "menu-icon": "qld__icon__mobile-menu",
     "search-icon": "qld__icon__search",
@@ -9,7 +9,7 @@
     "chevron_down": "qld__icon__chevron-down"
   },
   "header": {
-    "icon-root": "./assets/img/svg-icons.svg",
+    "icon-root": "//dev-static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/img/svg-icons.svg",
     "icons": {
       "menu-icon": "qld__icon__mobile-menu",
       "search-icon": "qld__icon__search",
@@ -171,7 +171,7 @@
       "target_url": "metadata-index.html",
       "options": {
         "showHomeTitleSmallDevices": true,
-        "icon-root": "./assets/img/svg-icons.svg",
+        "icon-root": "//dev-static.qgov.net.au/qgds-bootstrap5/v1/v1.x.x-latest/assets/img/svg-icons.svg",
         "home-active": true
       }
     }

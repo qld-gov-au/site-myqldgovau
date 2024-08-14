@@ -65,7 +65,7 @@ async function build(options) {
         await cleanBuildFolder();
     }
     await compileTemplates();
-    await copyAssets();
+    //await copyAssets();
 }
 
 function watchFiles() {
