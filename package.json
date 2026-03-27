@@ -27,7 +27,7 @@
     "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",
-    "handlebars": "4.7.8",
+    "handlebars": "4.7.9",
     "live-server": "1.2.2",
     "watch": "^1.0.2"
   }
